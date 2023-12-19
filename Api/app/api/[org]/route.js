@@ -5,7 +5,7 @@ import { getRepos, filterRepos } from '../../../src/github'
 export async function GET (request, { params }) {
   const language = request.nextUrl.searchParams.get('lang')
   const quantity = parseInt(request.nextUrl.searchParams.get('quantity'))
-  if (isNaN(quantity) || quantity < 0) {
+  if (isNaN(quantity) || quantity <= 0) {
     return NextResponse.json(
       { error: 'invalid quantity' },
       { status: 400 }

@@ -27,6 +27,7 @@ export async function getRepos (org) {
 export function filterRepos (repos, quantity, language) {
   const result = []
   for (const repo of repos) {
+    if (result.length === quantity) break
     if (repo.language === language || language == null) {
       result.push({
         name: repo.full_name,
@@ -34,7 +35,6 @@ export function filterRepos (repos, quantity, language) {
         avatar: repo.owner.avatar_url
       })
     }
-    if (result.length === quantity) break
   }
   return result
 }
