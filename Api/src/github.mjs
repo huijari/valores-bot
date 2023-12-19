@@ -1,4 +1,4 @@
-const baseURL = 'https://api.github.com'
+const baseURL = process.env.GITHUB_API
 
 /**
  * Fetches repository list from github, sorted by creation date in ascending order
